@@ -42,6 +42,12 @@ docker run --rm -it busybox ping -6 -c4 ipv6-test.com
 
 
 
+#### In case, if you docker version is 18.09.0-0519, add this manually.
+
+```shell
+ip6tables -t nat -A POSTROUTING -s fd00::/80 ! -o docker0 -j MASQUERADE
+```
+
 #### run docker manually【only use when you want to troubleshot】
 
 ```shell
